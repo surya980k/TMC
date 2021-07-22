@@ -43,7 +43,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" show="false" value="enc:system.encryption.key.v1:0fdxqOSreZr4kJjuvtT3iCli9x/F/28vepHvt//A"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" show="false" value="enc:system.encryption.key.v1:5uRLP54sqnqfY1Q6I/KdRX3QOhXE2a5DmtGKj2H/"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
@@ -78,7 +78,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="USER" show="false" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" show="false" value="enc:system.encryption.key.v1:H4nyWQsjTZVIrqK+rHLwJuGQ1l0TMsaedpO+9P1u"/>
+    <elementParameter field="PASSWORD" name="PASS" show="false" value="enc:system.encryption.key.v1:jNa1b7u/VDSKQ8Z6mtYKhJD61CfrUyxixL09UBGW"/>
     <elementParameter field="FILE" name="DBFILE" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" show="false" value="&quot;&quot;"/>
@@ -166,7 +166,7 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tDropboxConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="352">
+  <node componentName="tDropboxConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDropboxConnection_1"/>
     <elementParameter field="TEXT" name="ACCESS_TOKEN" value="&quot;sl.A1DSSoA4mJTdRBByHGl7azIQZp5X-le41UyU69l4084Vig_Nxqo7n6FZw4HN1FxLvZgsgIUGltqfhXuVLCc-d7KvwE_ZP5tykndQ7wGbr7m_Rby0-W7_2fKMKj_-n7F4nn6CmF4&quot;"/>
     <elementParameter field="CHECK" name="USE_PROXY" value="false"/>
@@ -197,17 +197,31 @@
       <column defaultValue="" key="false" length="0" name="content" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_Object" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tDropboxDelete" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="736" posY="384">
+  <node componentName="tDropboxDelete" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="576" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDropboxDelete_1"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value=""/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDropboxConnection_1"/>
+    <elementParameter field="TEXT" name="ACCESS_TOKEN" show="false" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="USE_PROXY" show="false" value="false"/>
+    <elementParameter field="TEXT" name="PROXY_HOST" show="false" value="&quot;127.0.0.1&quot;"/>
+    <elementParameter field="TEXT" name="PROXY_PORT" show="false" value="8087"/>
+    <elementParameter field="TEXT" name="PATH" value="&quot;/talend/santosh k/&quot;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tDropboxDelete_1"/>
+  </node>
+  <node componentName="tDropboxList" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="384" posY="384">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDropboxList_2"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDropboxConnection_1"/>
     <elementParameter field="TEXT" name="ACCESS_TOKEN" show="false" value="&quot;&quot;"/>
     <elementParameter field="CHECK" name="USE_PROXY" show="false" value="false"/>
     <elementParameter field="TEXT" name="PROXY_HOST" show="false" value="&quot;127.0.0.1&quot;"/>
     <elementParameter field="TEXT" name="PROXY_PORT" show="false" value="8087"/>
     <elementParameter field="TEXT" name="PATH" value="&quot;&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="LIST_MODE" value="FILES"/>
+    <elementParameter field="CHECK" name="INCLUDSUBDIR" value="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tDropboxDelete_1"/>
   </node>
   <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tRowGenerator_1" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_1" target="tFileOutputDelimited_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
@@ -237,13 +251,18 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_e2c96b4f-fc0c-40f1-ab18-6d26dc0cbaf1"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>0P+j5cHIoxnjx9k0RjhXDM+MFBZGGqijwLJ4823ie/AxNdBCYMaDqBSTaEIT8Fw7pwoij+VBVULt&#13;
-u+6Z2NFaoA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_95e7c555-0c04-49f0-ad2e-0dd9e9ba5068"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>osj8IQNjdAhkqJHs0mJC8/Z2olAz0d6Lceb7y4nMWUa/C5gWPSfaPIXgSNRR0uk7pTUzactYc4G1&#13;
-+3IOTAtUXQ==</DigestValue></Reference></SignedInfo><SignatureValue>P9KqkqYdeaPmXmmE7jsXJVJsmUIF3DcMzjrFaR9NITlyT335prc5EtLoUBOZqtRo1Yd84NcK0WqD&#13;
-a0ho/UMjEZUfX7VbXLWIvinGlV2mHZZvCqaTy6eFoUojMcx61Dkcq/TAaW+Yc32MUGUS8mZ+V3LM&#13;
-pDwMkVDfV83sUdoIJXs63SzRDCA7r8mxvysJQhPJyiQxeIwFXCQ+maj/FGX24qt5UP6CSiEYz08i&#13;
-v2IJoUzws90IRZNfhlfK6dK5yODZ3pjf/gp0DBlhv+KE1Wgs1bkymyEvCKaIqoeGsPnogVIbtxFh&#13;
-/E2OHJawcRnIJ0s30UnBtUNcMX0ik3uvndZ3CQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDropboxList_2"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_8deb4ed6-c9f2-4680-a06b-42e68472227b"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Y8ZM5vRalekVQGI9//Udp7mLa/z7lItxRN/3/WhX5aXqyxPtHoFI3kXS7ZmAAKwITiG1AOEydZwC&#13;
+FdrlC3E3Jw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_c8ddd1c9-82f2-4966-85c7-c79d407d4eac"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Tszp8fsKd9dki1Ni9X2EKSz2bo5CFAS02GHYvbc4DHFbc62H9+w6ZWH4KBrb1IVDSYAMEMHVv3w4&#13;
+GXshi+Mahg==</DigestValue></Reference></SignedInfo><SignatureValue>B7MCKZH4VB/30ZfyfBOyZ6GsWbPZDfR919jRvAO8VCoUPOtsfXuWOfuyiLI9qG82U3IniM1dd/Eu&#13;
+DfnOxhHlhIKxBDpAxxqry9+vflfaRCnbr+mlck5JT9y29aQbPJwMKMHlr0/P44obvWl2lJHWQGet&#13;
+ACoRwptUL/oY270GyyflYfc0gGv9ctZnkdHAfPLCVYXXIrB+zaLY4tuU0QdKoERuaIrQ6MwAESDy&#13;
+JHZgVBDIjHPbaggu6Y2OyymhiZ5+5As/zeCo8JXVJl/Su/gUfMIcZV+HBlEpP00dtbhNq6wmjAtp&#13;
+L1NXT634TyM6EjS4pWmvDWQ3yv9AuPI5hKfsBw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
 DAYDVQQIEwVQYXJpczEOMAwGA1UEBxMFUGFyaXMxFDASBgNVBAoTC1RhbGVuZCBJbmMuMQwwCgYD&#13;
 VQQLDANSJkQxFjAUBgNVBAMMDVRhbGVuZCBSJkQgQ0ExIjAgBgkqhkiG9w0BCQEWE3NlY3VyaXR5&#13;
 QHRhbGVuZC5jb20wHhcNMTkwNjAzMDgxODIwWhcNMjkwNjAzMDAwMDAwWjB7MSgwJgYDVQQDEx9U&#13;
@@ -265,4 +284,4 @@ hakvpzhOyLo91h8YAQrEZJdNuKA8IYmBrFZQZDCz0uywKSyFfzPyJhvxylCLG/iDPPfE0VWcrMJ/&#13
 WQJly/2XPg/NBCTF3pSKS0kCiA7PeaI3cWkMYYA3PMwYDvzqs1opBRglG7ikj0bQxSm3lcjMuuvW&#13;
 gBRksFKjP3K/nztsjSoYITOM9jR29ReIL3v0E8RbAFwA2RGq6Dxd0ixfbucMesy5Gnr8tfYy6rW+&#13;
 qSQqd3ah4+PSzBNVwIB4ytpdrG3SlhCI2i2Th8ek8Sjsaquh9qPAerWNd2+84HWOOGj1Xe1qc6vg&#13;
-qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_95e7c555-0c04-49f0-ad2e-0dd9e9ba5068" Target="#_e2c96b4f-fc0c-40f1-ab18-6d26dc0cbaf1"><Timestamp>2021-07-22 15:15:00</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_c8ddd1c9-82f2-4966-85c7-c79d407d4eac" Target="#_8deb4ed6-c9f2-4680-a06b-42e68472227b"><Timestamp>2021-07-22 15:23:28</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
